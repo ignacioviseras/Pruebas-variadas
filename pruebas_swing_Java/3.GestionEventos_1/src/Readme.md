@@ -2,10 +2,9 @@
 
 Ahora mismo tenemos esta ventana pero solo es una vista plana sin ninguna ejecución.
 
-<!-- <center>
-<img aling="center" src=""> </center> -->
-<center>
-<img aling="center" src="fotosReadme/Untitled.png"> </center>
+<p align="center">
+  <img src="fotosReadme/Untitled.png">
+</p>
 
 Para hacer que funcionen los componentes tendremos que gestionar los eventos esto se hace utilizando unos **listeners**
 
@@ -23,32 +22,36 @@ Ejemplo → la ventana (algo cambiara en la ventana o en algún componente que c
 Ejemplo → Imagina que tenemos un botón, pues el botón estaría en todo momento a la escucha por si alguien hace click en el.
 A esa acción se le llama evento y esa acción tiene que devolver una respuesta
 
+<p align="center">
+  <img src="fotosReadme/Untitled%201.png">
+</p>
 
-<center>
-<img aling="center" src="fotosReadme/Untitled%201.png"></center>
-
-## <center> Eventos de Botón   /   Campo de Texto   /  Menú </center>
+<h1 align="center">
+  Eventos de Botón   /   Campo de Texto   /  Menú </h1>
 
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
 | ActionListener | actionPerformed(ActionEvent e) 💭Se hizo click en el componente💭 | Object getSource() 💭Obtiene el objeto fuente que ha lanzado el evento💭 |
 
 <br></br>
-## <center> Eventos de Combo </center>
-
+<h1 align="center">
+  Eventos de Combo </h1>
+  
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
 | ItemListener | itemStateChanged(ItemEvent e) 💭Se ha seleccionado un elemento de la lista.💭 | Object getSource() 💭Obtiene el objeto fuente que ha lanzado el evento💭 |
 
 <br></br>
-## <center> Eventos de casillas de Verificación / Radios </center>
+<h1 align="center">
+  Eventos de casillas de Verificación / Radios </h1>
 
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
 | ChangeListener | stateChanged(ChangeEvent e) 💭Ha cambiado el estado (seleccionado/deseleccionado).💭 | Object getSource() 💭Obtiene el objeto fuente que ha lanzado el evento💭 |
 
 <br></br>
-## <center> Eventos del Teclado </center>
+<h1 align="center">
+   Eventos del Teclado </h1>
 
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
@@ -58,7 +61,8 @@ A esa acción se le llama evento y esa acción tiene que devolver una respuesta
 | KeyListener | keyTyped(KeyEvent e) 💭Se ha pulsado y liberado una tecla.💭 | Object getSource() 💭Objeto que produjo el evento💭 |
 
 <br></br>
-## <center> Eventos del Ratón </center>
+<h1 align="center">
+   Eventos del Ratón </h1>
 
 | Interface | Método |
 | --- | --- |
