@@ -83,11 +83,11 @@ Lo que estamos haciendo es que el botón que teníamos creados este a la escucha
 
 ```java
 private void inicializarComponentes() {
-	boton = new JButton("Saludar");
-	boton.setBounds(50, 80, 170, 30);
-	add(boton);
+  boton = new JButton("Saludar");
+  boton.setBounds(50, 80, 170, 30);
+  add(boton);
 
-	boton.addActionListener(new ManejadorEventos(this));//Nuevo
+  boton.addActionListener(new ManejadorEventos(this));//Nuevo
 }
 ```
 
@@ -97,13 +97,13 @@ De esta manera se podrá cambiar el titulo, acceder a la caja de texto…
 
 ```java
 /*Creamos una variable que se llame ventana donde 
-	guardaremos los datos recibidos en el constructor,
-	para así utilizarlos mas tarde en otros metodos.*/
+  guardaremos los datos recibidos en el constructor,
+  para así utilizarlos mas tarde en otros metodos.*/
 
 private VentanaPrincipal ventana;
 
 public ManejadorEventos(VentanaPrincipal ventana) {
-	this.ventana = ventana;
+  this.ventana = ventana;
 }
 ```
 
@@ -114,7 +114,7 @@ Para cambiar el titulo tendremos que utilizar el método que se nos importo al u
 //tendremos que crear uno
 @Override
 public void actionPerformed(ActionEvent e) {
-	ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
+  ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
 }
 ```
 
@@ -124,11 +124,11 @@ Ahora creamos un botonReset para eso lo hacemos como los anteriores en VentanaPr
 private JButton botonReset;
 
 private void inicializarComponentes() {
-	//añadimos un nuevo componente debajo de los anteriores
-	botonReset = new JButton("Borrar");
-	botonReset.setBounds(50, 120, 170, 30);
-	add(botonReset);
-	botonReset.addActionListener(new ManejadorEventos(this));
+  //añadimos un nuevo componente debajo de los anteriores
+  botonReset = new JButton("Borrar");
+  botonReset.setBounds(50, 120, 170, 30);
+  add(botonReset);
+  botonReset.addActionListener(new ManejadorEventos(this));
 }
 ```
 
@@ -141,13 +141,13 @@ Para que los if funcionen tendremos que crear los getters y setter de los botone
 ```java
 @Override
 public void actionPerformed(ActionEvent e) {
-	
-	if(e.getSource() == ventana.getBoton())
-		ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
-	
-	if (e.getSource() == ventana.getBotonReset())
-		ventana.getCajaTexto().setText(""); //son lo mismo
-		//ventana.getCajaTexto().setText(null); //son lo mismo
+  
+  if(e.getSource() == ventana.getBoton())
+    ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
+  
+  if (e.getSource() == ventana.getBotonReset())
+    ventana.getCajaTexto().setText(""); //son lo mismo
+    //ventana.getCajaTexto().setText(null); //son lo mismo
 }
 ```
 
@@ -157,8 +157,8 @@ Se podría dejar así ya que funciona todo, **pero tiene un problema** y es que 
 
 ```java
 public void establecerManejador(ManejadorEventos manejador){
-	boton.addActionListener(manejador);
-	botonReset.addActionListener(manejador);		
+  boton.addActionListener(manejador);
+  botonReset.addActionListener(manejador);		
 }
 ```
 
@@ -168,8 +168,8 @@ Por ultimo iremos al Main.java y añadimos las siguientes líneas.
 
 ```java
 public static void main(String[] args) {
-	VentanaPrincipal ventanaPrincip = new VentanaPrincipal();
-	ManejadorEventos manejador = new ManejadorEventos(ventanaPrincip);//Nuevo
-	ventanaPrincip.establecerManejador(manejador);//Nuevo
+  VentanaPrincipal ventanaPrincip = new VentanaPrincipal();
+  ManejadorEventos manejador = new ManejadorEventos(ventanaPrincip);//Nuevo
+  ventanaPrincip.establecerManejador(manejador);//Nuevo
 }
 ```
