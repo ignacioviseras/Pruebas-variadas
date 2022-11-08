@@ -7,7 +7,9 @@ File-> New-> Java Proyect-> Proyect name
 2. Creacion paquetes
 Dentro del proyecto tendremos que tener un paquete para la vista y otro para el controlador
 
-![Untitled](fotosReadme/Untitled.png)
+<p align="center">
+  <img src="fotosReadme/Untitled.png">
+</p>
 
 ### En el paquete de vista
 
@@ -85,7 +87,9 @@ VentanaPrincipal ventanaPrincip = new VentanaPrincipal();
 
 Cuando guardemos todo ejecutamos el programa y se nos abrirá la ventana
 
-![Untitled](fotosReadme/Untitled%201.png)
+<p align="center">
+  <img src="fotosReadme/Untitled%201.png">
+</p>
 
 ## Interaccion con el usuario
 
@@ -121,4 +125,6 @@ setIconImage(Toolkit.getDefaultToolkit().getImage("src/fotos/fotoIcono.png"));
 
 El resultado final seria el siguiente
 
-![Untitled](fotosReadme/Untitled%202.png)
+<p align="center">
+  <img src="fotosReadme/Untitled%202.png">
+</p>
