@@ -55,7 +55,7 @@ setDefaultCloseOperation(opcion);
 Opciones
 
 1. EXIT_ON_CLOSE 
-cierra la pestaña estera(indicada para paguinas principales)
+cierra la pestaña estera(indicada para paginas principales)
 2. DO_NOTHING_ON_CLOSE
  si le damos no hace nada
 3. HIDE_ON_CLOSE
