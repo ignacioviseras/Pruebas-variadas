@@ -29,21 +29,21 @@ Para añadir componentes tendremos que seguir estos 3 pasos
 2. Dar tamaño y posición
 3. Añadir 
     
-    ```java
-    private void inicializarComponentes() {
-    		etiqueta = new JLabel("Nombre");//1
-    		etiqueta.setBounds(50, 30, 50, 30);//2
-    		add(etiqueta);//3
-    		
-    		cajaTexto = new JTextField();//1
-    		cajaTexto.setBounds(110, 30, 110, 30);//2
-    		add(cajaTexto);//3
-    		
-    		boton = new JButton("Saludar");//1
-    		boton.setBounds(50, 80, 170, 30);//2
-    		add(boton);//3
-    	}
-    ```
+```java
+private void inicializarComponentes() {
+  etiqueta = new JLabel("Nombre");//1
+  etiqueta.setBounds(50, 30, 50, 30);//2
+  add(etiqueta);//3
+
+  cajaTexto = new JTextField();//1
+  cajaTexto.setBounds(110, 30, 110, 30);//2
+  add(cajaTexto);//3
+
+  boton = new JButton("Saludar");//1
+  boton.setBounds(50, 80, 170, 30);//2
+  add(boton);//3
+}
+```
     
 
 Siempre que añadimos componentes en una ventana hay un organizador que va recolocando esto se llama **layout** como los vamos a colocar manualmente tendremos que desactivarlo.
@@ -52,8 +52,8 @@ Esto se hace en el constructor antes de llamar a la función en la que se locali
 
 ```java
 public VentanaPrincipal() {
-		setLayout(null);//desactivamos el layout
-		inicializarComponentes();
+  setLayout(null);//desactivamos el layout
+  inicializarComponentes();
 }
 ```
 
