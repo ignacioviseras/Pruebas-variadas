@@ -59,4 +59,6 @@ public VentanaPrincipal() {
 
 Resultado final
 
-![Untitled](fotosReadme/Untitled.png)
+<p align="center">
+  <img src="fotosReadme/Untitled.png">
+</p>
