@@ -45,16 +45,16 @@ Además nos crearemos un constructor de la clase en el que indicaremos: tamaño 
 
 ```java
 public VentanaPrincipal() {
-	//el orden de creacion de la ventana da igual lo unico 
-	//importante es que la indicacion de que sea visible se ubique al final.
+  //el orden de creacion de la ventana da igual lo unico 
+  //importante es que la indicacion de que sea visible se ubique al final.
+
+  setSize(650,270);//indicamos el tamaño
+  setLocationRelativeTo(null);//al ser null aparecera en el centro de la pantalla
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//cierra la pestaña estera
 	
-	setSize(650,270);//indicamos el tamaño
-	setLocationRelativeTo(null);//al ser null aparecera en el centro de la pantalla
-	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//cierra la pestaña estera
-	
-	setLayout(null);//desactivamos el layout
-	inicalizarComponentes();//llamada a la funcion
-	setVisible(true);//hacemos que sea visible
+  setLayout(null);//desactivamos el layout
+  inicalizarComponentes();//llamada a la funcion
+  setVisible(true);//hacemos que sea visible
 }
 ```
 
@@ -71,7 +71,7 @@ Para crear la ventana tendremos que instanciar VentanaPrincipal en el main como 
 
 ```java
 public static void main(String[] args) {
-	new VentanaPrincipal();
+  new VentanaPrincipal();
 }
 ```
 
@@ -101,14 +101,14 @@ private JLabel imagen;
 
 //Como es una funcion interna la ponemos privada
 private void inicalizarComponentes() {
-	getContentPane().setBackground(Color.WHITE);//Color de fondo blanco
+  getContentPane().setBackground(Color.WHITE);//Color de fondo blanco
 	
-	//el JLaberl en vez de contener una cadena de texto que seria lo normal
-	//contendra una imagen -> para eso tendremos q crear un objeto el cual 
-	//le indicaremos la ruta.
-	imagen = new JLabel(new ImageIcon("imagenes/nn.png"));
-	imagen.setBounds(0, 0, 300, 270);//cordenadas 0x 0y / y tamaño width 300 height 270
-	add(imagen);//añadimos la imagen a la ventana
+  //el JLaberl en vez de contener una cadena de texto que seria lo normal
+  //contendra una imagen -> para eso tendremos q crear un objeto el cual 
+  //le indicaremos la ruta.
+  imagen = new JLabel(new ImageIcon("imagenes/nn.png"));
+  imagen.setBounds(0, 0, 300, 270);//cordenadas 0x 0y / y tamaño width 300 height 270
+  add(imagen);//añadimos la imagen a la ventana
 }
 ```
 
@@ -124,40 +124,40 @@ Para eso tendremos que añadir una segunda fotografía y usaremos un **MouseList
 
 ```java
 private void inicalizarComponentes() {
-	//⚠️⚠️Esto es la continuación de la funcion mostrada anteriormente⚠️⚠️
+  //⚠️⚠️Esto es la continuación de la funcion mostrada anteriormente⚠️⚠️
 
-	//Cuando creamos un objeto de MouseListener
-	//tendremos que implementar toda la interfaz de este.
-	//utilizaremos solo el que necesitemos-> mouseEntered
-	imagen.addMouseListener(new MouseListener() {
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-		}
+  //Cuando creamos un objeto de MouseListener
+  //tendremos que implementar toda la interfaz de este.
+  //utilizaremos solo el que necesitemos-> mouseEntered
+  imagen.addMouseListener(new MouseListener() {
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+      // TODO Auto-generated method stub
+    }
+
+    //Se ejecutara cuando ente el raton encima de la foto
+    @Override
+    public void mouseEntered(MouseEvent e) {
+      imagen.setIcon(new ImageIcon("src/imagenes/gato2.jpg"));
+    }
+
+    //Se ejecutara cuando salga el raton encima de la foto
+    @Override
+    public void mouseExited(MouseEvent e) {
+      imagen.setIcon(new ImageIcon("src/imagenes/gato1.jpg"));
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
 		
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-		}
-		
-		//Se ejecutara cuando ente el raton encima de la foto
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			imagen.setIcon(new ImageIcon("src/imagenes/gato2.jpg"));
-		}
-		
-		//Se ejecutara cuando salga el raton encima de la foto
-		@Override
-		public void mouseExited(MouseEvent e) {
-			imagen.setIcon(new ImageIcon("src/imagenes/gato1.jpg"));
-		}
-		
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-		
-		}
-	});
+    }
+  });
 
 }
 ```
@@ -191,25 +191,26 @@ Empezaremos con el checkbox
 private JCheckBox checkbox;
 
 private void inicalizarComponentes() {
-	//⚠️⚠️Esto es la continuación de la funcion mostrada anteriormente⚠️⚠️
+  //⚠️⚠️Esto es la continuación de la funcion mostrada anteriormente⚠️⚠️
 	
-	checkbox = new JCheckBox("Aceptar términos");//declaramos el checkbox
-	checkbox.setBounds(350, 50, 150, 30);//tamaño y pos
-	checkbox.setBackground(Color.WHITE);//color de fondo
+  checkbox = new JCheckBox("Aceptar términos");//declaramos el checkbox
+  checkbox.setBounds(350, 50, 150, 30);//tamaño y pos
+  checkbox.setBackground(Color.WHITE);//color de fondo
 
-	//⚠️Mismo caso que con la imagen añadimos la interfaz ChangeListener⚠️
-	checkbox.addChangeListener(new ChangeListener() {
-		//aqui indicamos que ocurrira cuando se haga click en el checkbox.
-		@Override
-		public void stateChanged(ChangeEvent e) {
-			if(checkbox.isSelected()) {//si esta seleccionado
-				boton.setEnabled(true);//activamos el boton
-			}else {//si NO esta activado
-				boton.setEnabled(false);//desactivamos el boton
-			}
-		}
-	});
-	add(checkbox);//lo añadimos
+  //⚠️Mismo caso que con la imagen añadimos la interfaz ChangeListener⚠️
+  checkbox.addChangeListener(new ChangeListener() {
+    //aqui indicamos que ocurrira cuando se haga click en el checkbox.
+    @Override
+    public void stateChanged(ChangeEvent e) {
+      if(checkbox.isSelected()) {//si esta seleccionado
+        boton.setEnabled(true);//activamos el boton
+      }else {//si NO esta activado
+        boton.setEnabled(false);//desactivamos el boton
+      }
+    }
+  });
+  
+  add(checkbox);//lo añadimos
 }
 ```
 
@@ -219,21 +220,22 @@ Botón
 private JButton boton;
 
 private void inicalizarComponentes() {
-	//⚠️⚠️Esto es la continuación de la funcion mostrada anteriormente⚠️⚠️
+  //⚠️⚠️Esto es la continuación de la funcion mostrada anteriormente⚠️⚠️
 
-	boton = new JButton("Continuar");//declaramos el boton
-	boton.setBounds(350, 100, 145, 30);//tamaño y pos
+  boton = new JButton("Continuar");//declaramos el boton
+  boton.setBounds(350, 100, 145, 30);//tamaño y pos
 
-	//este boton no se podra usar hasta que se acepten las condiciones
-	boton.setEnabled(false);
-	boton.addActionListener(new ActionListener() {//Añadimos la interfaz de ActioListener
-		//Esto se accionara cuando el boton sea clicado
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "POP", "Esto es el titulo", JOptionPane.PLAIN_MESSAGE);//esto es una "ventana emergente"
-		}
-	});
-	add(boton);//lo añadimos
+  //este boton no se podra usar hasta que se acepten las condiciones
+  boton.setEnabled(false);
+  boton.addActionListener(new ActionListener() {//Añadimos la interfaz de ActioListener
+    //Esto se accionara cuando el boton sea clicado
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      JOptionPane.showMessageDialog(null, "POP", "Esto es el titulo", JOptionPane.PLAIN_MESSAGE);//esto es una "ventana emergente"
+    }
+  });
+  
+  add(boton);//lo añadimos
 }
 ```
 
