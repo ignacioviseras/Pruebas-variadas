@@ -12,18 +12,18 @@ Esto se puede solucionar en el **ManejadorEventos**→ **actionPerformed y añad
 
 ```java
 public class ManejadorEventos implements ActionListener{
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		////BotonSaludar
-		if(e.getSource() == ventana.getBoton())
-			ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
+  @Override
+  public void actionPerformed(ActionEvent e) {
+    ////BotonSaludar
+    if(e.getSource() == ventana.getBoton())
+      ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
 
-		//⚠️BotonReset⚠️
-		if (e.getSource() == ventana.getBotonReset()){
-			ventana.getCajaTexto().setText("");
-			ventana.getCajaTexto().requestFocus();//⚠️nos activara la caja de texto
-		}
-	}
+    //⚠️BotonReset⚠️
+    if (e.getSource() == ventana.getBotonReset()){
+      ventana.getCajaTexto().setText("");
+      ventana.getCajaTexto().requestFocus();//⚠️nos activara la caja de texto
+    }
+  }
 }
 ```
 
@@ -62,8 +62,8 @@ Vamos a empezar cambiando el color de fondo de la ventana.
     
     ```java
     private void inicializarComponentes() {
-    	//esto se aplicara sobre la ventana principal
-    	getContentPane().setBackground(new Color(102, 0, 153));
+      //esto se aplicara sobre la ventana principal
+      getContentPane().setBackground(new Color(102, 0, 153));
     }
     ```
     
@@ -82,12 +82,12 @@ Ahora modificaremos la caja de texto
 
 ```java
 private void inicializarComponentes() {
-	cajaTexto = new JTextField();
-	cajaTexto.setBounds(110, 30, 110, 30);
-	cajaTexto.setBorder(null);//quitamos el borde de la caja de texto
-	cajaTexto.setFont(new Font("Dialog", Font.BOLD, 14));//idicamos la fuente del texto
-	cajaTexto.setForeground(new Color(102, 0, 153));//color de las letras
-	add(cajaTexto);
+  cajaTexto = new JTextField();
+  cajaTexto.setBounds(110, 30, 110, 30);
+  cajaTexto.setBorder(null);//quitamos el borde de la caja de texto
+  cajaTexto.setFont(new Font("Dialog", Font.BOLD, 14));//idicamos la fuente del texto
+  cajaTexto.setForeground(new Color(102, 0, 153));//color de las letras
+  add(cajaTexto);
 }
 ```
 
@@ -95,12 +95,12 @@ También cambiamos el aspecto de los botones
 
 ```java
 private void inicializarComponentes() {
-	boton = new JButton("Saludar");
-	boton.setBounds(50, 80, 170, 30);
-	boton.setFont(new Font("Dialog", Font.BOLD, 14));//idicamos la fuente del texto
-	boton.setForeground(new Color(102, 0, 153));//color de las letras
-	boton.setBackground(Color.WHITE);//color del boton
-	add(boton);
+  boton = new JButton("Saludar");
+  boton.setBounds(50, 80, 170, 30);
+  boton.setFont(new Font("Dialog", Font.BOLD, 14));//idicamos la fuente del texto
+  boton.setForeground(new Color(102, 0, 153));//color de las letras
+  boton.setBackground(Color.WHITE);//color del boton
+  add(boton);
 }
 ```
 
@@ -150,9 +150,9 @@ Ahora añadiremos un icono en el espacio en vacío que tenemos.
 private JLabel logo;
 
 private VentanaPrincipal(){
-	logo = new JLabel(new ImageIcon("src/fotos/perfil.png"));
-	logo.setBounds(45, 45, 50, 50);
-	add(logo);
+  logo = new JLabel(new ImageIcon("src/fotos/perfil.png"));
+  logo.setBounds(45, 45, 50, 50);
+  add(logo);
 }
 ```
 
@@ -172,10 +172,10 @@ Tendremos que indicar los siguientes parámetros:
 
 ```java
 private void inicializarComponentes() {
-	Image img = new ImageIcon("src/fotos/perfil.png").getImage();//escalado de foto
-	logo = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));//escalado de foto
-	logo.setBounds(95, 20, 80, 80);
-	add(logo);
+  Image img = new ImageIcon("src/fotos/perfil.png").getImage();//escalado de foto
+  logo = new JLabel(new ImageIcon(img.getScaledInstance(80, 80, Image.SCALE_SMOOTH)));//escalado de foto
+  logo.setBounds(95, 20, 80, 80);
+  add(logo);
 }
 ```
 
@@ -191,20 +191,20 @@ Tendremos que indicar un formato y el fichero en el que se encuentra la fuente.
 private JLabelnombreApp;
 
 private void inicializarComponentes() {
-	try {
-		Font fuente = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("../fuentes/space age.ttf"));//ubicacion de la fuente
-		
-		nombreApp = new JLabel("Mi App");//texto que tendra la label
-		nombreApp.setHorizontalAlignment(SwingConstants.CENTER);//centramos el contenido
-		nombreApp.setFont(fuente.deriveFont(Font.BOLD, 40f));//indicamos q fuente se usara ademas decimos q sea negrita y de tamaño 40 (la f es pq es float)
-		nombreApp.setBounds(0, 120, 285, 30);//tamaño/posicionamiento
-		nombreApp.setForeground(Color.WHITE);
-		add(nombreApp);
-	} catch (FontFormatException e) {
-		e.printStackTrace();
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
+  try {
+    Font fuente = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("../fuentes/space age.ttf"));//ubicacion de la fuente
+
+    nombreApp = new JLabel("Mi App");//texto que tendra la label
+    nombreApp.setHorizontalAlignment(SwingConstants.CENTER);//centramos el contenido
+    nombreApp.setFont(fuente.deriveFont(Font.BOLD, 40f));//indicamos q fuente se usara ademas decimos q sea negrita y de tamaño 40 (la f es pq es float)
+    nombreApp.setBounds(0, 120, 285, 30);//tamaño/posicionamiento
+    nombreApp.setForeground(Color.WHITE);
+    add(nombreApp);
+  } catch (FontFormatException e) {
+    e.printStackTrace();
+  } catch (IOException e) {
+    e.printStackTrace();
+  }
 }
 ```
 
