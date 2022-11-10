@@ -2,9 +2,10 @@
 
 Ahora mismo tenemos esta ventana pero solo es una vista plana sin ninguna ejecución.
 
-<p align="center">
-  <img src="fotosReadme/Untitled.png">
-</p>
+<!-- <center>
+<img aling="center" src=""> </center> -->
+<center>
+<img aling="center" src="fotosReadme/Untitled.png"> </center>
 
 Para hacer que funcionen los componentes tendremos que gestionar los eventos esto se hace utilizando unos **listeners**
 
@@ -22,36 +23,32 @@ Ejemplo → la ventana (algo cambiara en la ventana o en algún componente que c
 Ejemplo → Imagina que tenemos un botón, pues el botón estaría en todo momento a la escucha por si alguien hace click en el.
 A esa acción se le llama evento y esa acción tiene que devolver una respuesta
 
-<p align="center">
-  <img src="fotosReadme/Untitled%201.png">
-</p>
 
-<h1 align="center">
-  Eventos de Botón   /   Campo de Texto   /  Menú </h1>
+<center>
+<img aling="center" src="fotosReadme/Untitled%201.png"></center>
+
+## <center> Eventos de Botón   /   Campo de Texto   /  Menú </center>
 
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
 | ActionListener | actionPerformed(ActionEvent e) 💭Se hizo click en el componente💭 | Object getSource() 💭Obtiene el objeto fuente que ha lanzado el evento💭 |
 
 <br></br>
-<h1 align="center">
-  Eventos de Combo </h1>
-  
+## <center> Eventos de Combo </center>
+
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
 | ItemListener | itemStateChanged(ItemEvent e) 💭Se ha seleccionado un elemento de la lista.💭 | Object getSource() 💭Obtiene el objeto fuente que ha lanzado el evento💭 |
 
 <br></br>
-<h1 align="center">
-  Eventos de casillas de Verificación / Radios </h1>
+## <center> Eventos de casillas de Verificación / Radios </center>
 
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
 | ChangeListener | stateChanged(ChangeEvent e) 💭Ha cambiado el estado (seleccionado/deseleccionado).💭 | Object getSource() 💭Obtiene el objeto fuente que ha lanzado el evento💭 |
 
 <br></br>
-<h1 align="center">
-   Eventos del Teclado </h1>
+## <center> Eventos del Teclado </center>
 
 | Interface | Método | Métodos del evento “e” |
 | --- | --- | --- |
@@ -61,8 +58,7 @@ A esa acción se le llama evento y esa acción tiene que devolver una respuesta
 | KeyListener | keyTyped(KeyEvent e) 💭Se ha pulsado y liberado una tecla.💭 | Object getSource() 💭Objeto que produjo el evento💭 |
 
 <br></br>
-<h1 align="center">
-   Eventos del Ratón </h1>
+## <center> Eventos del Ratón </center>
 
 | Interface | Método |
 | --- | --- |
@@ -87,11 +83,11 @@ Lo que estamos haciendo es que el botón que teníamos creados este a la escucha
 
 ```java
 private void inicializarComponentes() {
-  boton = new JButton("Saludar");
-  boton.setBounds(50, 80, 170, 30);
-  add(boton);
+	boton = new JButton("Saludar");
+	boton.setBounds(50, 80, 170, 30);
+	add(boton);
 
-  boton.addActionListener(new ManejadorEventos(this));//Nuevo
+	boton.addActionListener(new ManejadorEventos(this));//Nuevo
 }
 ```
 
@@ -101,13 +97,13 @@ De esta manera se podrá cambiar el titulo, acceder a la caja de texto…
 
 ```java
 /*Creamos una variable que se llame ventana donde 
-  guardaremos los datos recibidos en el constructor,
-  para así utilizarlos mas tarde en otros metodos.*/
+	guardaremos los datos recibidos en el constructor,
+	para así utilizarlos mas tarde en otros metodos.*/
 
 private VentanaPrincipal ventana;
 
 public ManejadorEventos(VentanaPrincipal ventana) {
-  this.ventana = ventana;
+	this.ventana = ventana;
 }
 ```
 
@@ -118,7 +114,7 @@ Para cambiar el titulo tendremos que utilizar el método que se nos importo al u
 //tendremos que crear uno
 @Override
 public void actionPerformed(ActionEvent e) {
-  ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
+	ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
 }
 ```
 
@@ -128,11 +124,11 @@ Ahora creamos un botonReset para eso lo hacemos como los anteriores en VentanaPr
 private JButton botonReset;
 
 private void inicializarComponentes() {
-  //añadimos un nuevo componente debajo de los anteriores
-  botonReset = new JButton("Borrar");
-  botonReset.setBounds(50, 120, 170, 30);
-  add(botonReset);
-  botonReset.addActionListener(new ManejadorEventos(this));
+	//añadimos un nuevo componente debajo de los anteriores
+	botonReset = new JButton("Borrar");
+	botonReset.setBounds(50, 120, 170, 30);
+	add(botonReset);
+	botonReset.addActionListener(new ManejadorEventos(this));
 }
 ```
 
@@ -145,13 +141,13 @@ Para que los if funcionen tendremos que crear los getters y setter de los botone
 ```java
 @Override
 public void actionPerformed(ActionEvent e) {
-  
-  if(e.getSource() == ventana.getBoton())
-    ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
-  
-  if (e.getSource() == ventana.getBotonReset())
-    ventana.getCajaTexto().setText(""); //son lo mismo
-    //ventana.getCajaTexto().setText(null); //son lo mismo
+	
+	if(e.getSource() == ventana.getBoton())
+		ventana.setTitle("Hola " + ventana.getCajaTexto().getText());
+	
+	if (e.getSource() == ventana.getBotonReset())
+		ventana.getCajaTexto().setText(""); //son lo mismo
+		//ventana.getCajaTexto().setText(null); //son lo mismo
 }
 ```
 
@@ -161,8 +157,8 @@ Se podría dejar así ya que funciona todo, **pero tiene un problema** y es que 
 
 ```java
 public void establecerManejador(ManejadorEventos manejador){
-  boton.addActionListener(manejador);
-  botonReset.addActionListener(manejador);		
+	boton.addActionListener(manejador);
+	botonReset.addActionListener(manejador);		
 }
 ```
 
@@ -172,8 +168,8 @@ Por ultimo iremos al Main.java y añadimos las siguientes líneas.
 
 ```java
 public static void main(String[] args) {
-  VentanaPrincipal ventanaPrincip = new VentanaPrincipal();
-  ManejadorEventos manejador = new ManejadorEventos(ventanaPrincip);//Nuevo
-  ventanaPrincip.establecerManejador(manejador);//Nuevo
+	VentanaPrincipal ventanaPrincip = new VentanaPrincipal();
+	ManejadorEventos manejador = new ManejadorEventos(ventanaPrincip);//Nuevo
+	ventanaPrincip.establecerManejador(manejador);//Nuevo
 }
 ```
