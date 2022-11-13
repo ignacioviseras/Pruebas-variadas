@@ -53,7 +53,7 @@ public VentanaSecundaria() {
     
     ```java
     public JButton getBotonCerrar() {
-    	return botonCerrar;
+      return botonCerrar;
     }
     ```
     
