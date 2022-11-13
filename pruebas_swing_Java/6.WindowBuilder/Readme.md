@@ -62,23 +62,23 @@
 
 Para que nos quede la ventana así.
 <p align="center">
-  		<img src="fotosReadme/Untitled%206.png">
+  <img src="fotosReadme/Untitled%206.png">
 </p>
 
 Tendremos que poner los siguientes valores
 
-| Titulo | Botón Volver |
-| --- | --- | --- |
-|<img src="fotosReadme/Untitled%207.png">|<img src="fotosReadme/Untitled%208.png">|
+|Titulo|Botón Volver|
+|---|---|
+|![foto](fotosReadme/Untitled%207.png)|![foto](fotosReadme/Untitled%208.png)|
 
 
 Si hacemos dobleclick en el botón volver se nos abrirá en el código el actionListener correspondiente, le indicaremos dentro que cuando sea clicado se cierre la pestaña.
 
 ```java
 botonCerrar.addActionListener(new ActionListener() {
-	public void actionPerformed(ActionEvent e) {
-		dispose();//cerrar la ventana
-	}
+  public void actionPerformed(ActionEvent e) {
+    dispose();//cerrar la ventana
+  }
 });
 ```
 
@@ -89,17 +89,17 @@ botonCerrar.addActionListener(new ActionListener() {
 Ahora vamos a conectar VentanaPrincipal con VentanaSecundaria
 
 ```java
-	public void actionPerformed(ActionEvent e) {
-	////⚠️Acceder⚠️
-	if(e.getSource() == ventana.getBoton()) {
-		VentanaSecundaria ventana2 = new VentanaSecundaria();//abrimos la ventanaSecundaria
-		ventana2.setVisible(true);//⚠️ponemos el setVisible ya que en el constructor no esta
-	}
-
-	//BotonReset
-	if (e.getSource() == ventana.getBotonReset()) {
-		ventana.getCajaTexto().setText("");
-		ventana.getCajaTexto().requestFocus();//nos activara la caja de texto
-	}
+public void actionPerformed(ActionEvent e) {
+  ////⚠️Acceder⚠️
+  if(e.getSource() == ventana.getBoton()) {
+    VentanaSecundaria ventana2 = new VentanaSecundaria();//abrimos la ventanaSecundaria
+    ventana2.setVisible(true);//⚠️ponemos el setVisible ya que en el constructor no esta
+  }
+  
+  //BotonReset
+  if (e.getSource() == ventana.getBotonReset()) {
+    ventana.getCajaTexto().setText("");
+    ventana.getCajaTexto().requestFocus();//nos activara la caja de texto
+  }
 }
 ```
